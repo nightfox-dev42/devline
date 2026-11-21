@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#12141a">
-    <meta name="description" content="DEVLINE создаёт сайты, лендинги, Telegram-ботов, Mini Apps и AI-инструменты для бизнеса.">
-    <meta property="og:title" content="DEVLINE — сайты, лендинги, боты и цифровые продукты">
-    <meta property="og:description" content="DEVLINE создаёт сайты, лендинги, Telegram-ботов, Mini Apps и AI-инструменты для бизнеса.">
+    <meta name="description" content="DEVLINE создаёт сайты, лендинги, Telegram-ботов, мини-приложения и инструменты с ИИ для бизнеса." data-en-content="DEVLINE builds websites, landing pages, Telegram bots, mini apps and AI tools for businesses.">
+    <meta property="og:title" content="DEVLINE — сайты, лендинги, боты и цифровые продукты" data-en-content="DEVLINE — Websites, bots and digital products">
+    <meta property="og:description" content="DEVLINE создаёт сайты, лендинги, Telegram-ботов, мини-приложения и инструменты с ИИ для бизнеса." data-en-content="DEVLINE builds websites, landing pages, Telegram bots, mini apps and AI tools for businesses.">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="ru_RU">
-    <title>DEVLINE — сайты, лендинги, боты и цифровые продукты</title>
+    <meta property="og:locale" content="ru_RU" data-en-content="en_US">
+    <title data-en="DEVLINE — Websites, bots and digital products">DEVLINE — сайты, лендинги, боты и цифровые продукты</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050505'/%3E%3Cpath d='M18 16h13c10 0 17 6 17 16s-7 16-17 16H18V16Zm9 8v16h4c5 0 8-3 8-8s-3-8-8-8h-4Z' fill='%23f2f1e9'/%3E%3Cpath d='M15 43h7l20-22h-8L15 43Z' fill='%23c8ff45'/%3E%3C/svg%3E">
     <style>
       :root {
@@ -111,6 +111,36 @@
         line-height: 1;
       }
       .brand-mark { width: 2.4rem; height: 2.4rem; flex: 0 0 auto; }
+      .brand-group { display: flex; align-items: center; gap: clamp(.6rem, 1.5vw, 1.25rem); }
+      .language-switch { display: none; }
+      .js-ready .language-switch {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        background: var(--bg);
+      }
+      .language-switch button {
+        min-width: 2.25rem;
+        min-height: 2.5rem;
+        padding: 0 .45rem;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        font-size: .75rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .language-switch button[aria-pressed="true"] { color: var(--lime); background: rgb(200 240 74 / .09); }
+      .language-switch button:hover { color: var(--lime); }
+      @media (max-width: 1050px) {
+        .nav-wrap, .nav-links { gap: 1rem; }
+      }
+      @media (pointer: coarse) { .language-switch button { min-width: 44px; min-height: 44px; } }
+      @media (max-width: 420px) {
+        .hero-title-line--continuation, .hero-description { min-block-size: 4lh; }
+      }
       .nav-links {
         display: flex;
         align-items: center;
@@ -367,6 +397,7 @@
       }
       .project-media.is-broken img { visibility: hidden; }
       .project-media.is-broken::before { position: absolute; z-index: auto; inset: 0; display: grid; place-items: center; background: var(--bg-soft); filter: none; color: var(--muted); content: 'Изображение недоступно'; }
+      html[lang="en"] .project-media.is-broken::before { content: 'Image unavailable'; }
       .project-content { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
       .project h3 { margin: 0; font-family: var(--sans); font-size: clamp(2rem, 3.4vw, 4rem); font-weight: 800; letter-spacing: -.06em; line-height: .94; }
       .project-category { margin: .65rem 0 0; color: var(--lime); font-size: .875rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
@@ -498,9 +529,10 @@
   </head>
   <body>
     <div class="site-shell">
-      <header class="site-header" aria-label="Основная навигация" data-entry="header">
+      <header class="site-header" aria-label="Основная навигация" data-en-aria-label="Primary navigation" data-entry="header">
         <div class="container nav-wrap">
-          <a class="brand" href="#top" aria-label="DEVLINE — на главную">
+          <div class="brand-group">
+          <a class="brand" href="#top" aria-label="DEVLINE — на главную" data-en-aria-label="DEVLINE — Home">
             <svg class="brand-mark" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
               <path d="M5 4.5h6.3c6.1 0 10.4 3.7 10.4 9.5s-4.3 9.5-10.4 9.5H5V4.5Zm4.2 4v11h2c3.5 0 6.1-1.9 6.1-5.5s-2.6-5.5-6.1-5.5h-2Z" fill="currentColor"/>
               <path d="M3.5 22.5h5.1l16-17h-5.2l-15.9 17Z" fill="var(--lime)"/>
@@ -508,11 +540,16 @@
             </svg>
             <span>DEVLINE</span>
           </a>
+            <div class="language-switch" role="group" aria-label="Язык сайта" data-en-aria-label="Website language">
+              <button type="button" data-language="ru" aria-pressed="true" aria-label="Русский" data-en-aria-label="Russian">RU</button>
+              <button type="button" data-language="en" aria-pressed="false" aria-label="Английский" data-en-aria-label="English">EN</button>
+            </div>
+          </div>
           <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-menu">
             <span></span><span></span>
           </button>
-          <nav id="main-menu" class="nav-links" aria-label="Разделы сайта">
-            <a href="#services">УСЛУГИ</a>
+          <nav id="main-menu" class="nav-links" aria-label="Разделы сайта" data-en-aria-label="Site sections">
+            <a href="#services" data-en="SERVICES">УСЛУГИ</a>
             <a href="https://t.me/devline_ru" target="_blank" rel="noreferrer">TELEGRAM</a>
             <a href="https://t.me/devline_ru" target="_blank" rel="noreferrer">@devline_ru</a>
             <a href="https://t.me/MaKsiM_55l" target="_blank" rel="noreferrer">@MaKsiM_55l</a>
@@ -538,53 +575,53 @@
           </div>
           <div class="container hero-content">
             <div class="hero-copy">
-              <p class="eyebrow hero-label" data-entry="hero-eyebrow" data-delay="1">ПЕРСОНАЛЬНАЯ ЦИФРОВАЯ СТУДИЯ</p>
+              <p class="eyebrow hero-label" data-entry="hero-eyebrow" data-delay="1" data-en="INDEPENDENT DIGITAL STUDIO">ПЕРСОНАЛЬНАЯ ЦИФРОВАЯ СТУДИЯ</p>
               <h1 id="hero-title" data-entry="hero-title" data-delay="2">
-                <span class="hero-title-line">Создаю <em>сайты</em>, лендинги,</span>
-                <span class="hero-title-line" style="--line-index:1">Telegram-ботов и цифровые сервисы,</span>
-                <span class="hero-title-line hero-title-line--continuation" style="--line-index:2">которые помогают бизнесу выглядеть сильнее, работать быстрее и получать больше обращений.</span>
+                <span class="hero-title-line"><span data-en="I build ">Создаю </span><em data-en="websites">сайты</em><span data-en=",">, лендинги,</span></span>
+                <span class="hero-title-line" style="--line-index:1" data-en="landing pages, Telegram bots and digital tools,">Telegram-ботов и цифровые сервисы,</span>
+                <span class="hero-title-line hero-title-line--continuation" style="--line-index:2" data-en="so businesses can make a stronger impression, work faster and get more inquiries.">которые помогают бизнесу выглядеть сильнее, работать быстрее и получать больше обращений.</span>
               </h1>
-              <p class="hero-description" data-entry="hero-description" data-delay="3">От первого экрана до рабочей формы заявки, интеграций и автоматизации — собираю проект целиком и подстраиваю его под задачу бизнеса.</p>
-              <a class="button" href="https://t.me/MaKsiM_55l" target="_blank" rel="noreferrer" data-entry="hero-button" data-delay="4">ОБСУДИТЬ ПРОЕКТ</a>
+              <p class="hero-description" data-entry="hero-description" data-delay="3" data-en="From the first screen to live forms, integrations and automation, I build the entire project around your business needs.">От первого экрана до рабочей формы заявки, интеграций и автоматизации — собираю проект целиком и подстраиваю его под задачу бизнеса.</p>
+              <a class="button" href="https://t.me/MaKsiM_55l" target="_blank" rel="noreferrer" data-entry="hero-button" data-delay="4" data-en="DISCUSS A PROJECT">ОБСУДИТЬ ПРОЕКТ</a>
             </div>
           </div>
-          <div class="scroll-cue" aria-hidden="true"><span>Листать</span></div>
+          <div class="scroll-cue" aria-hidden="true"><span data-en="Scroll">Листать</span></div>
         </section>
 
         <section class="section portfolio-section" aria-labelledby="portfolio-title">
           <div class="container">
             <div class="section-heading" data-reveal>
-              <p class="eyebrow">Портфолио / 04</p>
+              <p class="eyebrow" data-en="Portfolio / 04">Портфолио / 04</p>
               <div>
-                <h2 id="portfolio-title">ЧЕТЫРЕ НАПРАВЛЕНИЯ.<br>ОДНА СИСТЕМА.</h2>
-                <p class="heading-note">Проектирую сайты, ботов и mini apps так, чтобы визуальная подача и рабочая логика усиливали друг друга.</p>
+                <h2 id="portfolio-title"><span data-en="FOUR SPECIALTIES.">ЧЕТЫРЕ НАПРАВЛЕНИЯ.</span><br><span data-en="ONE SYSTEM.">ОДНА СИСТЕМА.</span></h2>
+                <p class="heading-note" data-en="I design websites, bots and mini apps that pair a clear visual identity with functionality that supports it.">Проектирую сайты, ботов и мини-приложения так, чтобы визуальная подача и рабочая логика усиливали друг друга.</p>
               </div>
             </div>
-            <div class="portfolio-intro"><span>Выбранные проекты</span><span>01 — 04</span></div>
+            <div class="portfolio-intro"><span data-en="Selected projects">Выбранные проекты</span><span>01 — 04</span></div>
             <div class="project-list">
               <article class="project" data-reveal="slide">
                 <span class="project-number">01</span>
-                <div class="project-media"><img src="assets/portfolio/bg-02.jpg" alt="Архитектурный веб-продукт NORTHLINE" width="1254" height="1254" loading="lazy"></div>
-                <div class="project-content"><h3>NORTHLINE</h3><p class="project-category">ЛЕНДИНГ / PREMIUM</p><p class="project-description">Премиальный лендинг для архитектурной студии: структура, тексты и визуалы с поддержкой ИИ, чистый код и высокая скорость.</p><ul class="project-tags" aria-label="Технологии и услуги проекта"><li>UX/UI</li><li>РАЗРАБОТКА</li><li>ИИ-КОНТЕНТ</li><li>АНИМАЦИЯ</li></ul></div>
+                <div class="project-media"><img src="assets/portfolio/bg-02.jpg" alt="Архитектурный веб-продукт NORTHLINE" data-en-alt="NORTHLINE architecture website" width="1254" height="1254" loading="lazy"></div>
+                <div class="project-content"><h3>NORTHLINE</h3><p class="project-category" data-en="LANDING PAGE / PREMIUM">ЛЕНДИНГ / ПРЕМИУМ</p><p class="project-description" data-en="A premium landing page for an architecture studio, with AI-assisted structure, copy and imagery, clean code and fast loading.">Премиальный лендинг для архитектурной студии: структура, тексты и визуалы с поддержкой ИИ, чистый код и высокая скорость.</p><ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="UX/UI">ИНТЕРФЕЙС И УДОБСТВО</li><li data-en="DEVELOPMENT">РАЗРАБОТКА</li><li data-en="AI CONTENT">ИИ-КОНТЕНТ</li><li data-en="MOTION">АНИМАЦИЯ</li></ul></div>
               </article>
               <article class="project" data-reveal="slide">
                 <span class="project-number">02</span>
-                <div class="project-media project-media--flowbot"><img src="assets/portfolio/bg-03.jpg" alt="Telegram-бот FLOWBOT" width="1254" height="1254" loading="lazy"></div>
-                <div class="project-content"><h3>FLOWBOT</h3><p class="project-category">TELEGRAM BOT / AUTOMATION</p><p class="project-description">Telegram-бот для записи, заявок и сервисных сценариев: автоматизация процессов, интеграции и умная логика на базе ИИ.</p><ul class="project-tags" aria-label="Технологии и услуги проекта"><li>БОТ-РАЗРАБОТКА</li><li>АВТОМАТИЗАЦИЯ</li><li>ИНТЕГРАЦИИ</li><li>ИИ-ЛОГИКА</li></ul></div>
+                <div class="project-media project-media--flowbot"><img src="assets/portfolio/bg-03.jpg" alt="Telegram-бот FLOWBOT" data-en-alt="FLOWBOT Telegram bot" width="1254" height="1254" loading="lazy"></div>
+                <div class="project-content"><h3>FLOWBOT</h3><p class="project-category" data-en="TELEGRAM BOTS / AUTOMATION">БОТЫ TELEGRAM / АВТОМАТИЗАЦИЯ</p><p class="project-description" data-en="A Telegram bot for bookings, inquiries and service workflows, with automation, integrations and AI-powered logic.">Telegram-бот для записи, заявок и сервисных сценариев: автоматизация процессов, интеграции и умная логика на базе ИИ.</p><ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="BOT DEVELOPMENT">РАЗРАБОТКА БОТОВ</li><li data-en="AUTOMATION">АВТОМАТИЗАЦИЯ</li><li data-en="INTEGRATIONS">ИНТЕГРАЦИИ</li><li data-en="AI LOGIC">ИИ-ЛОГИКА</li></ul></div>
               </article>
               <article class="project" data-reveal="slide">
                 <span class="project-number">03</span>
-                <div class="project-media project-media--orbit"><img src="assets/portfolio/bg-01.jpg" alt="Мобильный продукт ORBIT MINI APP" width="1672" height="941" loading="lazy"></div>
-                <div class="project-content"><h3>ORBIT MINI APP</h3><p class="project-category">MINI APP / PRODUCT</p><p class="project-description">Мобильный продукт с личным кабинетом и персональной аналитикой: трекинг прогресса, ключевые метрики и умные рекомендации на базе ИИ.</p><ul class="project-tags" aria-label="Технологии и услуги проекта"><li>MINI APP</li><li>МОБИЛЬНЫЙ ПРОДУКТ</li><li>АНАЛИТИКА</li><li>ЛИЧНЫЙ КАБИНЕТ</li></ul></div>
+                <div class="project-media project-media--orbit"><img src="assets/portfolio/bg-01.jpg" alt="Мобильный продукт ORBIT MINI APP" data-en-alt="ORBIT MINI APP mobile product" width="1672" height="941" loading="lazy"></div>
+                <div class="project-content"><h3>ORBIT MINI APP</h3><p class="project-category" data-en="MINI APP / PRODUCT">МИНИ-ПРИЛОЖЕНИЕ / ПРОДУКТ</p><p class="project-description" data-en="A mobile product with a personal dashboard, progress tracking, key metrics and AI-powered recommendations.">Мобильный продукт с личным кабинетом и персональной аналитикой: трекинг прогресса, ключевые метрики и умные рекомендации на базе ИИ.</p><ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="MINI APP">МИНИ-ПРИЛОЖЕНИЕ</li><li data-en="MOBILE PRODUCT">МОБИЛЬНЫЙ ПРОДУКТ</li><li data-en="ANALYTICS">АНАЛИТИКА</li><li data-en="USER ACCOUNT">ЛИЧНЫЙ КАБИНЕТ</li></ul></div>
               </article>
               <article class="project" data-reveal="slide">
                 <span class="project-number">04</span>
-                <div class="project-media"><img src="assets/portfolio/bg-04.jpg" alt="Интерфейс дашборда FRAMEWORK" width="1254" height="1254" loading="lazy"></div>
+                <div class="project-media"><img src="assets/portfolio/bg-04.jpg" alt="Интерфейс дашборда FRAMEWORK" data-en-alt="FRAMEWORK dashboard interface" width="1254" height="1254" loading="lazy"></div>
                 <div class="project-content">
                   <h3>FRAMEWORK</h3>
-                  <p class="project-category">WEB APP / DASHBOARD</p>
-                  <p class="project-description">Внутренняя система для заявок, задач, статусов, документов и ключевых показателей команды.</p>
-                  <ul class="project-tags" aria-label="Технологии и услуги проекта"><li>WEB APP</li><li>АНАЛИТИКА</li><li>ИНТЕГРАЦИИ</li></ul>
+                  <p class="project-category" data-en="WEB APP / DASHBOARD">ВЕБ-ПРИЛОЖЕНИЕ / ДАШБОРД</p>
+                  <p class="project-description" data-en="An internal system that brings requests, tasks, statuses, documents and team metrics together.">Внутренняя система для заявок, задач, статусов, документов и ключевых показателей команды.</p>
+                  <ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="WEB APP">ВЕБ-ПРИЛОЖЕНИЕ</li><li data-en="ANALYTICS">АНАЛИТИКА</li><li data-en="INTEGRATIONS">ИНТЕГРАЦИИ</li></ul>
                 </div>
               </article>
             </div>
@@ -594,25 +631,25 @@
         <section class="section services-section" id="services" aria-labelledby="services-title" tabindex="-1">
           <div class="container">
             <div class="section-heading" data-reveal>
-              <p class="eyebrow">Услуги / 12</p>
+              <p class="eyebrow" data-en="Services / 12">Услуги / 12</p>
               <div>
-                <h2 id="services-title">ЧТО Я МОГУ СОЗДАТЬ</h2>
-                <p class="heading-note">От одной точной страницы до внутренней системы, на которой держится ежедневная работа команды.</p>
+                <h2 id="services-title" data-en="WHAT I CAN BUILD">ЧТО Я МОГУ СОЗДАТЬ</h2>
+                <p class="heading-note" data-en="From a focused landing page to the internal tools your team uses every day.">От одной точной страницы до внутренней системы, на которой держится ежедневная работа команды.</p>
               </div>
             </div>
             <div class="services-grid">
-              <article class="service" data-reveal style="--delay:.0s"><span class="service-index">01</span><div><h3>Простой одностраничный лендинг</h3><p>Фокусный первый экран, понятная структура и форма заявки без лишнего.</p></div></article>
-              <article class="service" data-reveal style="--delay:.1s"><span class="service-index">02</span><div><h3>Сложный лендинг с анимациями</h3><p>Сценарная подача, динамика и глубина, которые поддерживают продукт.</p></div></article>
-              <article class="service" data-reveal style="--delay:.2s"><span class="service-index">03</span><div><h3>Сайт для бизнеса</h3><p>Собираю доверие, услуги и путь клиента в единую систему.</p></div></article>
-              <article class="service" data-reveal style="--delay:.3s"><span class="service-index">04</span><div><h3>Интернет-магазин</h3><p>Каталог, карточки, корзина и рабочая логика покупки.</p></div></article>
-              <article class="service" data-reveal style="--delay:.4s"><span class="service-index">05</span><div><h3>Telegram-бот</h3><p>Запись, заявки, ответы и сценарии прямо в привычном канале.</p></div></article>
-              <article class="service" data-reveal style="--delay:.5s"><span class="service-index">06</span><div><h3>Telegram Mini App</h3><p>Полноценный мобильный продукт внутри Telegram.</p></div></article>
-              <article class="service" data-reveal style="--delay:.6s"><span class="service-index">07</span><div><h3>AI-ассистент</h3><p>Умная точка входа для поддержки, продаж и внутренних задач.</p></div></article>
-              <article class="service" data-reveal style="--delay:.7s"><span class="service-index">08</span><div><h3>Автоматизация процессов</h3><p>Связываю инструменты, убираю рутину и ускоряю повторяющиеся действия.</p></div></article>
-              <article class="service" data-reveal style="--delay:.8s"><span class="service-index">09</span><div><h3>Внутренний дашборд</h3><p>Статусы, показатели и задачи в одном рабочем экране.</p></div></article>
-              <article class="service" data-reveal style="--delay:.9s"><span class="service-index">10</span><div><h3>Админ-панель</h3><p>Управление контентом и операциями без зависимости от разработчика.</p></div></article>
-              <article class="service" data-reveal style="--delay:1s"><span class="service-index">11</span><div><h3>CRM-интеграции</h3><p>Настраиваю обмен данными между сайтом, ботом и CRM.</p></div></article>
-              <article class="service" data-reveal style="--delay:1.1s"><span class="service-index">12</span><div><h3>Формы заявок и уведомления</h3><p>Надёжно передаю обращение туда, где команда его не пропустит.</p></div></article>
+              <article class="service" data-reveal style="--delay:.0s"><span class="service-index">01</span><div><h3 data-en="Single-page website">Простой одностраничный лендинг</h3><p data-en="A focused opening section, clear structure and a simple inquiry form.">Фокусный первый экран, понятная структура и форма заявки без лишнего.</p></div></article>
+              <article class="service" data-reveal style="--delay:.1s"><span class="service-index">02</span><div><h3 data-en="Landing page with animation">Сложный лендинг с анимациями</h3><p data-en="Storytelling and motion that bring the product to life.">Сценарная подача, динамика и глубина, которые поддерживают продукт.</p></div></article>
+              <article class="service" data-reveal style="--delay:.2s"><span class="service-index">03</span><div><h3 data-en="Business website">Сайт для бизнеса</h3><p data-en="Build trust, present your services and guide visitors to the next step.">Собираю доверие, услуги и путь клиента в единую систему.</p></div></article>
+              <article class="service" data-reveal style="--delay:.3s"><span class="service-index">04</span><div><h3 data-en="Online store">Интернет-магазин</h3><p data-en="A product catalog, product pages, cart and checkout.">Каталог, карточки, корзина и рабочая логика покупки.</p></div></article>
+              <article class="service" data-reveal style="--delay:.4s"><span class="service-index">05</span><div><h3 data-en="Telegram bot">Telegram-бот</h3><p data-en="Bookings, inquiries, answers and workflows right in Telegram.">Запись, заявки, ответы и сценарии прямо в привычном канале.</p></div></article>
+              <article class="service" data-reveal style="--delay:.5s"><span class="service-index">06</span><div><h3 data-en="Telegram Mini App">Мини-приложение Telegram</h3><p data-en="A complete mobile product that runs inside Telegram.">Полноценный мобильный продукт внутри Telegram.</p></div></article>
+              <article class="service" data-reveal style="--delay:.6s"><span class="service-index">07</span><div><h3 data-en="AI assistant">ИИ-ассистент</h3><p data-en="An AI assistant for support, sales and internal tasks.">Умная точка входа для поддержки, продаж и внутренних задач.</p></div></article>
+              <article class="service" data-reveal style="--delay:.7s"><span class="service-index">08</span><div><h3 data-en="Workflow automation">Автоматизация процессов</h3><p data-en="Connect your tools and spend less time on repetitive work.">Связываю инструменты, убираю рутину и ускоряю повторяющиеся действия.</p></div></article>
+              <article class="service" data-reveal style="--delay:.8s"><span class="service-index">09</span><div><h3 data-en="Internal dashboard">Внутренний дашборд</h3><p data-en="Statuses, metrics and tasks in one workspace.">Статусы, показатели и задачи в одном рабочем экране.</p></div></article>
+              <article class="service" data-reveal style="--delay:.9s"><span class="service-index">10</span><div><h3 data-en="Admin panel">Админ-панель</h3><p data-en="Manage content and daily operations without relying on a developer.">Управление контентом и операциями без зависимости от разработчика.</p></div></article>
+              <article class="service" data-reveal style="--delay:1s"><span class="service-index">11</span><div><h3 data-en="CRM integrations">Интеграции с CRM</h3><p data-en="Exchange data between your website, bot and CRM.">Настраиваю обмен данными между сайтом, ботом и CRM.</p></div></article>
+              <article class="service" data-reveal style="--delay:1.1s"><span class="service-index">12</span><div><h3 data-en="Inquiry forms and notifications">Формы заявок и уведомления</h3><p data-en="Send inquiries to the channel your team checks.">Надёжно передаю обращение туда, где команда его не пропустит.</p></div></article>
             </div>
           </div>
         </section>
@@ -620,12 +657,12 @@
         <section class="section contact-section" aria-labelledby="contact-title">
           <div class="container contact-layout" data-reveal>
             <div>
-              <p class="eyebrow">Связаться / 01</p>
-              <h2 id="contact-title" class="contact-title">ЕСТЬ ИДЕЯ?</h2>
+              <p class="eyebrow" data-en="Contact / 01">Связаться / 01</p>
+              <h2 id="contact-title" class="contact-title" data-en="HAVE AN IDEA?">ЕСТЬ ИДЕЯ?</h2>
             </div>
             <div>
-              <p class="contact-copy">Расскажи, что нужно сделать.<br><strong>Я помогу превратить идею в понятный цифровой продукт.</strong></p>
-              <a class="button" href="https://t.me/MaKsiM_55l" target="_blank" rel="noreferrer">НАПИСАТЬ В TELEGRAM</a>
+              <p class="contact-copy"><span data-en="Tell me what you need.">Расскажи, что нужно сделать.</span><br><strong data-en="I’ll help turn your idea into a digital product people can use.">Я помогу превратить идею в понятный цифровой продукт.</strong></p>
+              <a class="button" href="https://t.me/MaKsiM_55l" target="_blank" rel="noreferrer" data-en="MESSAGE ME ON TELEGRAM">НАПИСАТЬ В TELEGRAM</a>
             </div>
           </div>
         </section>
@@ -633,7 +670,7 @@
 
       <footer class="site-footer">
         <div class="container footer-row">
-          <p>© 2026 DEVLINE. DIGITAL SYSTEMS.</p>
+          <p data-en="© 2026 DEVLINE. DIGITAL SYSTEMS.">© 2026 DEVLINE. ЦИФРОВЫЕ СИСТЕМЫ.</p>
           <div class="footer-links"><a href="https://t.me/devline_ru" target="_blank" rel="noreferrer">@devline_ru</a><a href="https://t.me/MaKsiM_55l" target="_blank" rel="noreferrer">@MaKsiM_55l</a></div>
         </div>
       </footer>
@@ -643,6 +680,56 @@
       (() => {
         document.documentElement.classList.add('js-ready');
         const menuToggle = document.querySelector('.menu-toggle');
+        const languageKey = 'devline-language';
+        const languageButtons = [...document.querySelectorAll('[data-language]')];
+        const localizedProperties = [
+          ['data-en', null],
+          ['data-en-aria-label', 'aria-label'],
+          ['data-en-alt', 'alt'],
+          ['data-en-content', 'content'],
+        ];
+        const translations = localizedProperties.flatMap(([source, attribute]) =>
+          [...document.querySelectorAll(`[${source}]`)].map((element) => ({
+            element,
+            attribute,
+            ru: attribute ? element.getAttribute(attribute) : element.textContent,
+            en: element.getAttribute(source),
+          }))
+        );
+        let currentLanguage = 'ru';
+        const updateMenuLabel = () => {
+          const open = menuToggle.getAttribute('aria-expanded') === 'true';
+          const labels = currentLanguage === 'en' ? ['Open menu', 'Close menu'] : ['Открыть меню', 'Закрыть меню'];
+          menuToggle.setAttribute('aria-label', labels[Number(open)]);
+        };
+        const setLanguage = (language) => {
+          currentLanguage = language === 'en' ? 'en' : 'ru';
+          document.documentElement.lang = currentLanguage;
+          for (const translation of translations) {
+            const value = translation[currentLanguage];
+            if (translation.attribute) translation.element.setAttribute(translation.attribute, value);
+            else translation.element.textContent = value;
+          }
+          for (const button of languageButtons) {
+            button.setAttribute('aria-pressed', String(button.dataset.language === currentLanguage));
+          }
+          updateMenuLabel();
+        };
+        try {
+          setLanguage(localStorage.getItem(languageKey));
+        } catch {
+          setLanguage('ru');
+        }
+        for (const button of languageButtons) {
+          button.addEventListener('click', () => {
+            if (currentLanguage !== button.dataset.language) setLanguage(button.dataset.language);
+            try {
+              localStorage.setItem(languageKey, currentLanguage);
+            } catch {
+              // Language selection still works if storage is blocked.
+            }
+          });
+        }
         const menu = document.querySelector('#main-menu');
         const mobileNav = window.matchMedia('(max-width: 850px)');
         const services = document.querySelector('#services');
@@ -691,7 +778,7 @@
 
         const setMenu = (open, restoreFocus = false) => {
           menuToggle.setAttribute('aria-expanded', String(open));
-          menuToggle.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+          updateMenuLabel();
           menu.classList.toggle('is-open', open);
           menu.inert = mobileNav.matches && !open;
           if (restoreFocus) menuToggle.focus();
