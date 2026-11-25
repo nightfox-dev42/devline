@@ -1,1 +1,82 @@
-
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FRAMEWORK от DEVLINE — демонстрационный операционный центр для заявок, задач, документов и аналитики команды.">
+  <meta name="theme-color" content="#29312d">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="FRAMEWORK — операционный центр команды">
+  <meta property="og:description" content="Интерактивное демо DEVLINE для управления заявками, задачами, документами и загрузкой команды.">
+  <meta property="og:url" content="https://nightfox-dev42.github.io/devline/projects/framework/">
+  <meta property="og:image" content="https://nightfox-dev42.github.io/devline/projects/framework/assets/preview.jpg">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="Светлый dashboard FRAMEWORK с матовым 3D-объектом, показателями и графиком">
+  <link rel="canonical" href="https://nightfox-dev42.github.io/devline/projects/framework/">
+  <title>FRAMEWORK — операционный центр команды</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="environment" aria-hidden="true">
+    <svg class="environment-fold environment-fold--upper" viewBox="0 0 850 480" focusable="false">
+      <defs>
+        <linearGradient id="upper-clay" x1="15%" y1="5%" x2="85%" y2="92%">
+          <stop stop-color="var(--fold-light)"/>
+          <stop offset=".48" stop-color="var(--fold-cream)"/>
+          <stop offset=".81" stop-color="var(--fold-sage)"/>
+          <stop offset="1" stop-color="var(--fold-shade)"/>
+        </linearGradient>
+        <linearGradient id="upper-edge" x1="25%" y1="12%" x2="85%" y2="100%">
+          <stop stop-color="var(--fold-cream)"/>
+          <stop offset="1" stop-color="var(--fold-shade)"/>
+        </linearGradient>
+      </defs>
+      <path fill="var(--fold-shade)" opacity=".15" d="M0 64C174 34 329 43 452 106s146 108 258 106c55-1 106-16 140-41v114c-62 45-133 68-212 62-119-9-164-74-283-122S116 143 0 196Z"/>
+      <path fill="url(#upper-edge)" d="M0 53C176 29 332 38 453 101s145 107 256 104c54-1 107-17 141-43v110c-63 43-133 65-212 59-119-9-165-74-283-122S116 128 0 183Z"/>
+      <path fill="url(#upper-clay)" d="M0 33C176 5 331 14 453 77s145 108 256 104c54-2 107-17 141-43v112c-62 44-133 65-212 59-119-9-165-73-283-122S116 107 0 162Z"/>
+      <path fill="none" stroke="var(--fold-light)" stroke-width="2" opacity=".75" d="M0 162c116-55 238-23 355 25s164 113 283 122c79 6 150-15 212-59"/>
+      <path fill="var(--fold-cream)" opacity=".36" d="M243 0h607v112c-49 39-97 50-153 47-95-4-124-62-211-99C405 24 330 14 243 0Z"/>
+    </svg>
+    <svg class="environment-fold environment-fold--lower" viewBox="0 0 690 420" focusable="false">
+      <defs>
+        <linearGradient id="lower-clay" x1="5%" y1="15%" x2="90%" y2="94%">
+          <stop stop-color="var(--fold-light)"/>
+          <stop offset=".27" stop-color="var(--fold-sage)"/>
+          <stop offset=".68" stop-color="var(--fold-olive)"/>
+          <stop offset="1" stop-color="var(--fold-shade)"/>
+        </linearGradient>
+      </defs>
+      <path fill="var(--fold-shade)" opacity=".2" d="M0 111c125-60 207 21 324 39 133 23 236-31 366-22v196c-160-31-259 40-423-13C153 272 83 240 0 289Z"/>
+      <path fill="url(#lower-clay)" d="M0 83c125-59 207 21 324 40 133 22 236-31 366-22v194c-160-31-259 41-423-12C153 244 83 211 0 261Z"/>
+      <path fill="none" stroke="var(--fold-light)" stroke-width="2" opacity=".6" d="M0 83c125-59 207 21 324 40 133 22 236-31 366-22"/>
+      <path fill="var(--fold-cream)" opacity=".38" d="M0 231c127-52 214 53 341 75 112 19 237-26 349-9v73c-120-8-238 37-350 17C212 364 129 288 0 327Z"/>
+    </svg>
+  </div>
+  <a class="skip" href="#content">К содержанию</a>
+  <div id="login" hidden></div>
+  <div id="workspace" hidden>
+    <aside id="rail" class="rail" aria-label="Рабочее пространство"></aside>
+    <div class="workspace-body">
+      <header class="topbar" id="topbar"></header>
+      <main id="content" tabindex="-1"></main>
+      <footer class="footer">
+        <div>FRAMEWORK — концепт создан для демонстрации возможностей DEVLINE.<br>Все данные на странице являются демонстрационными.</div>
+        <div class="devline-links">
+          <a href="https://nightfox-dev42.github.io/devline/">Вернуться в DEVLINE ↗</a>
+          <a href="https://t.me/devline_ru">Telegram DEVLINE ↗</a>
+        </div>
+      </footer>
+    </div>
+    <nav id="bottom-nav" class="bottom-nav" aria-label="Быстрая навигация"></nav>
+  </div>
+  <dialog id="overlay" aria-labelledby="dialog-title">
+    <div id="overlay-body"></div>
+  </dialog>
+  <div id="notice" class="toast" role="status" aria-live="polite"></div>
+  <noscript>Для запуска демоверсии FRAMEWORK включите JavaScript.</noscript>
+</body>
+</html>
