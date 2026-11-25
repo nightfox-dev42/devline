@@ -404,6 +404,14 @@
       .project-description { max-width: 54ch; margin: 1.1rem 0 0; color: var(--muted); font-size: 1.1875rem; line-height: 1.55; }
       .project-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.5rem 0 0; padding: 0; list-style: none; }
       .project-tags li { padding: .35rem .62rem; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--text); font-size: .875rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+      .project--northline { position: relative; }
+      .project-open {
+        display: inline-flex; align-self: flex-start; align-items: center; min-height: 44px;
+        margin-top: 1.25rem; padding: .55rem 1rem; border: 1px solid var(--lime);
+        border-radius: 999px; color: var(--lime); font-size: .9rem; font-weight: 800;
+      }
+      .project-open::after { position: absolute; inset: 0; content: ''; }
+      .project-open:is(:hover, :focus-visible) { background: var(--lime); color: var(--bg); }
 
       .services-section { background: var(--bg-soft); }
       .services-section .section-heading { align-items: start; margin-bottom: clamp(2rem, 4vw, 4rem); }
@@ -599,10 +607,13 @@
             </div>
             <div class="portfolio-intro"><span data-en="Selected projects">Выбранные проекты</span><span>01 — 04</span></div>
             <div class="project-list">
-              <article class="project" data-reveal="slide">
+              <article class="project project--northline" data-reveal="slide">
                 <span class="project-number">01</span>
-                <div class="project-media"><img src="assets/portfolio/bg-02.jpg" alt="Архитектурный веб-продукт NORTHLINE" data-en-alt="NORTHLINE architecture website" width="1254" height="1254" loading="lazy"></div>
-                <div class="project-content"><h3>NORTHLINE</h3><p class="project-category" data-en="LANDING PAGE / PREMIUM">ЛЕНДИНГ / ПРЕМИУМ</p><p class="project-description" data-en="A premium landing page for an architecture studio, with AI-assisted structure, copy and imagery, clean code and fast loading.">Премиальный лендинг для архитектурной студии: структура, тексты и визуалы с поддержкой ИИ, чистый код и высокая скорость.</p><ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="UX/UI">ИНТЕРФЕЙС И УДОБСТВО</li><li data-en="DEVELOPMENT">РАЗРАБОТКА</li><li data-en="AI CONTENT">ИИ-КОНТЕНТ</li><li data-en="MOTION">АНИМАЦИЯ</li></ul></div>
+                <div class="project-media"><img src="projects/northline/assets/hero.jpg" alt="Бетонный дом на первом экране NORTHLINE" data-en-alt="Concrete house on the NORTHLINE homepage" width="1536" height="1024" loading="lazy"></div>
+                <div class="project-content">
+                  <h3>NORTHLINE</h3><p class="project-category" data-en="LANDING PAGE / PREMIUM">ЛЕНДИНГ / ПРЕМИУМ</p><p class="project-description" data-en="A premium landing page for an architecture studio, with AI-assisted structure, copy and imagery, clean code and fast loading.">Премиальный лендинг для архитектурной студии: структура, тексты и визуалы с поддержкой ИИ, чистый код и высокая скорость.</p><ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="UX/UI">ИНТЕРФЕЙС И УДОБСТВО</li><li data-en="DEVELOPMENT">РАЗРАБОТКА</li><li data-en="AI CONTENT">ИИ-КОНТЕНТ</li><li data-en="MOTION">АНИМАЦИЯ</li></ul>
+                  <a class="project-open" href="projects/northline/index.html" aria-label="Открыть проект NORTHLINE" data-en-aria-label="Open the NORTHLINE project" data-en="Open project">Открыть проект</a>
+                </div>
               </article>
               <article class="project" data-reveal="slide">
                 <span class="project-number">02</span>
