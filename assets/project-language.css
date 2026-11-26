@@ -1,0 +1,27 @@
+.devline-language {
+  position: fixed;
+  z-index: 20;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  right: max(1rem, env(safe-area-inset-right));
+  display: inline-flex;
+  border: 1px solid #5b6151;
+  border-radius: 999px;
+  background: #12141a;
+  color: #fff;
+}
+.devline-language button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 .5rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: 700 12px/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+.devline-language button[aria-pressed="true"] { color: #c8f04a; background: #29321c; }
+.devline-language button:focus-visible { outline: 2px solid #c8f04a; outline-offset: 2px; }
+@media (max-width: 850px) {
+  body:has(#app, #bottom-nav) .devline-language { bottom: calc(4.5rem + env(safe-area-inset-bottom)); }
+}

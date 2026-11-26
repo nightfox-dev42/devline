@@ -342,6 +342,13 @@
 
       .portfolio-intro { display: flex; align-items: baseline; justify-content: space-between; gap: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line-strong); color: var(--muted); font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; }
       .portfolio-intro span:last-child { color: var(--lime); }
+      .portfolio-notice { margin: 0 0 1.5rem; padding: .75rem 1rem; border-inline-start: 2px solid var(--lime); background: var(--bg-soft); color: var(--text); font-size: 1rem; line-height: 1.55; }
+      .project-status { color: var(--muted); font-size: .875rem; }
+      .nav-links .nav-portfolio { border: 1px solid var(--line-strong); border-radius: 999px; padding: .4rem .75rem; }
+      .portfolio-section { scroll-margin-top: 1.5rem; }
+      @media (min-width: 851px) and (max-width: 1100px) {
+        .nav-wrap .nav-links { gap: .7rem; letter-spacing: .04em; font-size: .875rem; }
+      }
       .project-list { border-bottom: 1px solid var(--line-strong); }
       .project {
         display: grid;
@@ -552,6 +559,7 @@
             <span></span><span></span>
           </button>
           <nav id="main-menu" class="nav-links" aria-label="Разделы сайта" data-en-aria-label="Site sections">
+            <a class="nav-portfolio" href="#projects" data-en="Portfolio">Портфолио</a>
             <a href="#services" data-en="SERVICES">УСЛУГИ</a>
             <a href="https://t.me/devline_ru" target="_blank" rel="noreferrer">TELEGRAM</a>
             <a href="https://t.me/devline_ru" target="_blank" rel="noreferrer">@devline_ru</a>
@@ -591,7 +599,7 @@
           <div class="scroll-cue" aria-hidden="true"><span data-en="Scroll">Листать</span></div>
         </section>
 
-        <section class="section portfolio-section" aria-labelledby="portfolio-title">
+        <section class="section portfolio-section" id="projects" aria-labelledby="portfolio-title" tabindex="-1">
           <div class="container">
             <div class="section-heading" data-reveal>
               <p class="eyebrow" data-en="Portfolio / 04">Портфолио / 04</p>
@@ -600,6 +608,7 @@
                 <p class="heading-note" data-en="I design websites, bots and mini apps that pair a clear visual identity with functionality that supports it.">Проектирую сайты, ботов и мини-приложения так, чтобы визуальная подача и рабочая логика усиливали друг друга.</p>
               </div>
             </div>
+            <p class="portfolio-notice" data-en="All projects below are demonstration versions. Open any case to explore the interface, features, buttons, and navigation.">Все проекты ниже — демонстрационные версии. Откройте любой кейс, чтобы посмотреть интерфейс, функции, кнопки и переходы.</p>
             <div class="portfolio-intro"><span data-en="Selected projects">Выбранные проекты</span><span>01 — 04</span></div>
             <div class="project-list">
               <article class="project project--northline" data-reveal="slide">
@@ -610,20 +619,8 @@
                   <a class="project-open" href="projects/northline/index.html" aria-label="Открыть проект NORTHLINE" data-en-aria-label="Open the NORTHLINE project" data-en="Open project">Открыть проект</a>
                 </div>
               </article>
-              <article class="project" data-reveal="slide">
-                <span class="project-number">02</span>
-                <div class="project-media project-media--flowbot"><img src="assets/portfolio/bg-03.jpg" alt="Telegram-бот FLOWBOT" data-en-alt="FLOWBOT Telegram bot" width="1254" height="1254" loading="lazy"></div>
-                <div class="project-content"><h3>FLOWBOT</h3><p class="project-category" data-en="TELEGRAM BOTS / AUTOMATION">БОТЫ TELEGRAM / АВТОМАТИЗАЦИЯ</p><p class="project-description" data-en="A Telegram bot for bookings, inquiries and service workflows, with automation, integrations and AI-powered logic.">Telegram-бот для записи, заявок и сервисных сценариев: автоматизация процессов, интеграции и умная логика на базе ИИ.</p><ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="BOT DEVELOPMENT">РАЗРАБОТКА БОТОВ</li><li data-en="AUTOMATION">АВТОМАТИЗАЦИЯ</li><li data-en="INTEGRATIONS">ИНТЕГРАЦИИ</li><li data-en="AI LOGIC">ИИ-ЛОГИКА</li></ul></div>
-              </article>
-              <article class="project project--orbit" data-reveal="slide">
-                <span class="project-number">03</span>
-                <div class="project-media project-media--orbit"><img src="projects/orbit/assets/preview.jpg" alt="Мобильный продукт ORBIT MINI APP" data-en-alt="ORBIT MINI APP mobile product" width="1440" height="810" loading="lazy"></div>
-                <div class="project-content"><h3>ORBIT MINI APP</h3><p class="project-category" data-en="MINI APP / PRODUCT">МИНИ-ПРИЛОЖЕНИЕ / ПРОДУКТ</p><p class="project-description" data-en="A mobile product with a personal dashboard, progress tracking, key metrics and AI-powered recommendations.">Мобильный продукт с личным кабинетом и персональной аналитикой: трекинг прогресса, ключевые метрики и умные рекомендации на базе ИИ.</p><ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="MINI APP">МИНИ-ПРИЛОЖЕНИЕ</li><li data-en="MOBILE PRODUCT">МОБИЛЬНЫЙ ПРОДУКТ</li><li data-en="ANALYTICS">АНАЛИТИКА</li><li data-en="USER ACCOUNT">ЛИЧНЫЙ КАБИНЕТ</li></ul>
-                  <a class="project-open" href="projects/orbit/index.html" aria-label="Открыть проект ORBIT MINI APP" data-en-aria-label="Open the ORBIT MINI APP project" data-en="Open project">Открыть проект</a>
-                </div>
-              </article>
               <article class="project project--framework" data-reveal="slide">
-                <span class="project-number">04</span>
+                <span class="project-number">02</span>
                 <div class="project-media"><img src="projects/framework/assets/preview.jpg" alt="Светлый дашборд FRAMEWORK с матовой 3D-композицией" data-en-alt="Light FRAMEWORK dashboard with a matte 3D sculpture" width="1440" height="900" loading="lazy"></div>
                 <div class="project-content">
                   <h3>FRAMEWORK</h3>
@@ -632,6 +629,18 @@
                   <ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="WEB APP">ВЕБ-ПРИЛОЖЕНИЕ</li><li data-en="ANALYTICS">АНАЛИТИКА</li><li data-en="INTEGRATIONS">ИНТЕГРАЦИИ</li></ul>
                   <a class="project-open" href="projects/framework/index.html" aria-label="Открыть проект FRAMEWORK" data-en-aria-label="Open the FRAMEWORK project" data-en="Open project">Открыть проект</a>
                 </div>
+              </article>
+              <article class="project project--orbit" data-reveal="slide">
+                <span class="project-number">03</span>
+                <div class="project-media project-media--orbit"><img src="projects/orbit/assets/preview.jpg" alt="Мобильный продукт ORBIT MINI APP" data-en-alt="ORBIT MINI APP mobile product" width="1440" height="810" loading="lazy"></div>
+                <div class="project-content"><h3>ORBIT MINI APP</h3><p class="project-category" data-en="MINI APP / PRODUCT">МИНИ-ПРИЛОЖЕНИЕ / ПРОДУКТ</p><p class="project-description" data-en="A mobile product with a personal dashboard, progress tracking, key metrics and AI-powered recommendations.">Мобильный продукт с личным кабинетом и персональной аналитикой: трекинг прогресса, ключевые метрики и умные рекомендации на базе ИИ.</p><ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="MINI APP">МИНИ-ПРИЛОЖЕНИЕ</li><li data-en="MOBILE PRODUCT">МОБИЛЬНЫЙ ПРОДУКТ</li><li data-en="ANALYTICS">АНАЛИТИКА</li><li data-en="USER ACCOUNT">ЛИЧНЫЙ КАБИНЕТ</li></ul>
+                  <a class="project-open" href="projects/orbit/index.html" aria-label="Открыть проект ORBIT MINI APP" data-en-aria-label="Open the ORBIT MINI APP project" data-en="Open project">Открыть проект</a>
+                </div>
+              </article>
+              <article class="project" data-reveal="slide">
+                <span class="project-number">04</span>
+                <div class="project-media project-media--flowbot"><img src="assets/portfolio/bg-03.jpg" alt="Telegram-бот FLOWBOT" data-en-alt="FLOWBOT Telegram bot" width="1254" height="1254" loading="lazy"></div>
+                <div class="project-content"><h3>FLOWBOT</h3><p class="project-category" data-en="TELEGRAM BOTS / AUTOMATION">БОТЫ TELEGRAM / АВТОМАТИЗАЦИЯ</p><p class="project-description" data-en="A Telegram bot for bookings, inquiries and service workflows, with automation, integrations and AI-powered logic.">Telegram-бот для записи, заявок и сервисных сценариев: автоматизация процессов, интеграции и умная логика на базе ИИ.</p><ul class="project-tags" aria-label="Технологии и услуги проекта" data-en-aria-label="Project technologies and services"><li data-en="BOT DEVELOPMENT">РАЗРАБОТКА БОТОВ</li><li data-en="AUTOMATION">АВТОМАТИЗАЦИЯ</li><li data-en="INTEGRATIONS">ИНТЕГРАЦИИ</li><li data-en="AI LOGIC">ИИ-ЛОГИКА</li></ul><p class="project-status" data-en="Demo preview · no separate page">Демо-превью · без отдельной страницы</p></div>
               </article>
             </div>
           </div>
@@ -724,11 +733,15 @@
           }
           updateMenuLabel();
         };
-        try {
-          setLanguage(localStorage.getItem(languageKey));
-        } catch {
-          setLanguage('ru');
-        }
+        const syncLanguage = () => {
+          let saved;
+          try { saved = localStorage.getItem(languageKey); } catch { /* Storage is optional. */ }
+          const requested = new URLSearchParams(location.search).get('lang');
+          setLanguage(['ru', 'en'].includes(saved) ? saved : requested);
+        };
+        syncLanguage();
+        window.addEventListener('pageshow', (event) => { if (event.persisted) syncLanguage(); });
+        window.addEventListener('storage', (event) => { if (event.key === languageKey) syncLanguage(); });
         for (const button of languageButtons) {
           button.addEventListener('click', () => {
             if (currentLanguage !== button.dataset.language) setLanguage(button.dataset.language);
@@ -741,8 +754,7 @@
         }
         const menu = document.querySelector('#main-menu');
         const mobileNav = window.matchMedia('(max-width: 850px)');
-        const services = document.querySelector('#services');
-        const servicesLink = menu.querySelector('[href="#services"]');
+        const sectionLinks = [...menu.querySelectorAll('a[href^="#"]')];
         const hero = document.querySelector('.hero');
         const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
         const revealItems = [...document.querySelectorAll('[data-reveal]')];
@@ -799,8 +811,9 @@
         menu.addEventListener('click', (event) => {
           const link = event.target.closest('a');
           if (!link || !mobileNav.matches) return;
-          setMenu(false, link !== servicesLink);
-          if (link === servicesLink) services.focus({ preventScroll: true });
+          const section = sectionLinks.includes(link) && document.getElementById(link.hash.slice(1));
+          setMenu(false, !section);
+          if (section) section.focus({ preventScroll: true });
         });
         document.addEventListener('click', (event) => {
           if (menu.classList.contains('is-open') && !menu.contains(event.target) && !menuToggle.contains(event.target)) setMenu(false, true);
@@ -812,8 +825,10 @@
           if (menu.classList.contains('is-open') && !menu.contains(event.target) && event.target !== menuToggle) setMenu(false);
         });
         const updateActiveNav = () => {
-          if (location.hash === '#services') servicesLink.setAttribute('aria-current', 'location');
-          else servicesLink.removeAttribute('aria-current');
+          for (const link of sectionLinks) {
+            if (location.hash === link.hash) link.setAttribute('aria-current', 'location');
+            else link.removeAttribute('aria-current');
+          }
         };
         updateActiveNav();
         window.addEventListener('hashchange', updateActiveNav);

@@ -60,7 +60,7 @@ const save = () => {
   try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch { /* In-memory session remains usable. */ }
 };
 const escape = (value) => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
-const devline = '<div class="footer-links"><a href="https://nightfox-dev42.github.io/devline/">Портфолио DEVLINE ↗</a><a href="https://t.me/devline_ru">Telegram DEVLINE ↗</a></div>';
+const devline = '<div class="footer-links"><a href="../../index.html">Портфолио DEVLINE ↗</a><a href="https://t.me/devline_ru">Telegram DEVLINE ↗</a></div>';
 const logo = `<span class="logo-mark">${icon('logo', 23)}</span><span>ORBIT<small>MINI APP</small></span>`;
 const avatar = '<span class="avatar" aria-hidden="true">А</span>';
 const score = () => 72 + [0, 2, 3, 1][state.updates % 4];
@@ -246,7 +246,7 @@ function showNotifications() {
   showDialog('Уведомления', `<div class="notice-list">${notifications().map(item => `<article class="activity-row ${state.read.includes(item.id) ? '' : 'unread'}"><span class="tile-icon">${icon(item.icon, 18)}</span><div><strong>${escape(item.title)}</strong><small>${escape(item.text)}</small></div></article>`).join('')}</div><div class="actions">${button('Прочитать всё', 'read', { style: 'primary', attrs: notifications().every(item => state.read.includes(item.id)) ? 'disabled' : '' })}${button('Закрыть', 'close')}</div>`);
 }
 function showGoalForm() {
-  showDialog('Новая цель', `<form id="new-goal"><label>Название цели<input name="title" maxlength="100" required autofocus placeholder="Например, читать каждый день"></label><label>Категория<select name="category">${categories.slice(1).map(item => `<option>${item}</option>`).join('')}</select></label><label>Срок<input type="date" name="due" required></label><div class="actions"><button type="submit" class="button primary">Сохранить</button>${button('Отмена', 'close')}</div></form>`);
+  showDialog('Новая цель', `<form id="new-goal"><label>Название цели<input name="title" maxlength="100" required autofocus placeholder="Например, читать каждый день"></label><label>Категория<select name="category">${categories.slice(1).map(item => `<option value="${item}">${item}</option>`).join('')}</select></label><label>Срок<input type="date" name="due" required></label><div class="actions"><button type="submit" class="button primary">Сохранить</button>${button('Отмена', 'close')}</div></form>`);
 }
 const demo = [
   ['home', 'demo-progress', 'Прогресс недели', 'Здесь виден текущий индекс активности и изменение за неделю.'],
@@ -369,7 +369,7 @@ modal.addEventListener('submit', event => {
   const data = new FormData(form);
   const title = data.get('title').trim();
   if (!title) {
-    form.elements.title.setCustomValidity('Введи название цели.');
+    form.elements.title.setCustomValidity(document.documentElement.lang === 'en' ? 'Enter a goal name.' : 'Введи название цели.');
     form.elements.title.reportValidity();
     form.elements.title.addEventListener('input', () => form.elements.title.setCustomValidity(''), { once: true });
     return;

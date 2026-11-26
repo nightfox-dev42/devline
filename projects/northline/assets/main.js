@@ -55,8 +55,12 @@ document.querySelectorAll('[data-project]').forEach((button) => {
     const image = project.querySelector('img');
     dialogImage.src = image.getAttribute('src');
     dialogImage.alt = image.alt;
-    dialog.querySelector('.dialog-type').textContent = project.querySelector('figcaption').textContent;
-    dialog.querySelector('#dialog-title').textContent = project.querySelector('h3').textContent;
+    const source = (selector) => {
+      const node = project.querySelector(selector).firstChild;
+      return window.devlineProjectLanguage?.source(node) ?? node.textContent;
+    };
+    dialog.querySelector('.dialog-type').textContent = source('figcaption');
+    dialog.querySelector('#dialog-title').textContent = source('h3');
     dialog.querySelector('.dialog-description').textContent = details[button.dataset.project];
     projectTrigger = button;
     dialog.showModal();

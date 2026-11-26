@@ -133,7 +133,7 @@ function toast(message) {
   clearTimeout(toast.timer);
   toast.timer = setTimeout(() => notice.classList.remove('visible'), 3000);
 }
-const devlineLinks = () => `<div class="devline-links"><a href="https://nightfox-dev42.github.io/devline/">DEVLINE ${icon('external',13)}</a><a href="https://t.me/devline_ru">Telegram ${icon('external',13)}</a></div>`;
+const devlineLinks = () => `<div class="devline-links"><a href="../../index.html">DEVLINE ${icon('external',13)}</a><a href="https://t.me/devline_ru">Telegram ${icon('external',13)}</a></div>`;
 function renderLogin() {
   $('#login').innerHTML = `<div class="login-layout"><section class="login-intro">
     ${brand()}<div><h1>Работа команды<br>в одном пространстве</h1>
